@@ -25,7 +25,7 @@ firewall {
         }
         rule 06 {
             action accept
-            description "Allow name query"
+            description "allow name query"
             destination {
                 port 53
             }
