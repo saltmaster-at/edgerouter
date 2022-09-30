@@ -322,6 +322,10 @@ service {
                     ip-address 10.15.6.201
                     mac-address dc:a6:32:fa:c2:cb
                 }
+                static-mapping shellyplug-s-D9D6FE {
+                    ip-address 10.15.6.231
+                    mac-address c4:5b:be:d9:d6:fe
+                }
                 static-mapping shellyplug-s-F1B397 {
                     ip-address 10.15.6.230
                     mac-address e8:68:e7:f1:b3:97
@@ -441,6 +445,9 @@ system {
             alias s-1
             inet 10.15.6.250
         }
+        host-name erx {
+            inet 10.15.6.254
+        }
         host-name hpkg {
             inet 10.15.6.251
         }
@@ -449,6 +456,9 @@ system {
         }
         host-name moode {
             inet 10.15.6.201
+        }
+        host-name shellyplug-s-D9D6FE {
+            inet 10.15.6.231
         }
         host-name shellyplug-s-F1B397 {
             inet 10.15.6.230
