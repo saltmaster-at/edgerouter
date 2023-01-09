@@ -298,6 +298,7 @@ service {
             subnet 10.15.6.254/24 {
                 default-router 10.15.6.254
                 dns-server 10.15.6.254
+                domain-name sstr.local
                 lease 1209600
                 start 10.15.6.2 {
                     stop 10.15.6.200
@@ -322,6 +323,10 @@ service {
                     ip-address 10.15.6.201
                     mac-address dc:a6:32:fa:c2:cb
                 }
+                static-mapping shellybutton-01 {
+                    ip-address 10.15.6.234
+                    mac-address 3c:61:05:f3:f1:f6
+                }
                 static-mapping shellyplug-s-D9D6FE {
                     ip-address 10.15.6.231
                     mac-address c4:5b:be:d9:d6:fe
@@ -329,6 +334,14 @@ service {
                 static-mapping shellyplug-s-F1B397 {
                     ip-address 10.15.6.230
                     mac-address e8:68:e7:f1:b3:97
+                }
+                static-mapping shellyplug-s-22-11-01 {
+                    ip-address 10.15.6.232
+                    mac-address c4:5b:be:d9:b1:f0
+                }
+                static-mapping shellyplug-s-22-11-02 {
+                    ip-address 10.15.6.233
+                    mac-address e8:68:e7:f1:a6:22
                 }
                 static-mapping unifi-ap-vz {
                     ip-address 10.15.6.252
@@ -399,7 +412,7 @@ system {
         }
         table-size 262144
     }
-    domain-name sstr.localdomain
+    domain-name sstr.local
     host-name erx-01
     login {
         user mm {
@@ -457,11 +470,20 @@ system {
         host-name moode {
             inet 10.15.6.201
         }
+        host-name shellybutton-01 {
+            inet 10.15.6.234
+        }
         host-name shellyplug-s-D9D6FE {
             inet 10.15.6.231
         }
         host-name shellyplug-s-F1B397 {
             inet 10.15.6.230
+        }
+        host-name shellyplug-s-22-11-01 {
+            inet 10.15.6.232
+        }
+        host-name shellyplug-s-22-11-02 {
+            inet 10.15.6.233
         }
     }
     syslog {
