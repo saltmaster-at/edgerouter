@@ -335,6 +335,10 @@ service {
                     ip-address 10.15.6.230
                     mac-address e8:68:e7:f1:b3:97
                 }
+                static-mapping shellyplug-s-brot {
+                    ip-address 10.15.6.234
+                    mac-address 80:64:6f:82:54:e2
+                }
                 static-mapping shellyplug-s-22-11-01 {
                     ip-address 10.15.6.232
                     mac-address c4:5b:be:d9:b1:f0
@@ -478,6 +482,9 @@ system {
         }
         host-name shellyplug-s-F1B397 {
             inet 10.15.6.230
+        }
+        host-name shellyplug-s-brot {
+            inet 10.15.6.234
         }
         host-name shellyplug-s-22-11-01 {
             inet 10.15.6.232
