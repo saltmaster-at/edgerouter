@@ -347,6 +347,14 @@ service {
                     ip-address 10.15.6.233
                     mac-address e8:68:e7:f1:a6:22
                 }
+                static-mapping shellyplug-s-23-01-04 {
+                    ip-address 10.15.6.235
+                    mac-address 80:64:6f:82:51:53
+                }
+                static-mapping shellyplug-s-23-01-05 {
+                    ip-address 10.15.6.236
+                    mac-address 80:64:6f:82:96:e4
+                }
                 static-mapping unifi-ap-vz {
                     ip-address 10.15.6.252
                     mac-address 80:2a:a8:10:d6:51
@@ -491,6 +499,17 @@ system {
         }
         host-name shellyplug-s-22-11-02 {
             inet 10.15.6.233
+        }
+        host-name shellyplug-s-23-01-04 {
+            alias shellyplug-s-80646F825153
+            alias shellyplug-s-rita-hochbett
+            alias vielfalt-ir-bett
+            inet 10.15.6.235
+        }
+        host-name shellyplug-s-23-01-05 {
+            alias vielfalt-maria-schreibtisch
+            alias maria-schreibtisch
+            inet 10.15.6.236
         }
     }
     syslog {
