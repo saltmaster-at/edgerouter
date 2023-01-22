@@ -80,12 +80,17 @@ firewall {
         default-action drop
         description "WAN to internal"
         enable-default-log
-        rule 10 {
+        rule 11 {
             action accept
-            description "Allow established/related"
-            state {
-                established enable
-                related enable
+            description sshpasstrhough
+            destination {
+                address 10.15.6.201
+                port 22
+            }
+            log disable
+            protocol tcp
+            source {
+                address 37.252.187.162
             }
         }
         rule 20 {
@@ -94,6 +99,14 @@ firewall {
             log enable
             state {
                 invalid enable
+            }
+        }
+        rule 30 {
+            action accept
+            description "Allow established/related"
+            state {
+                established enable
+                related enable
             }
         }
     }
@@ -123,22 +136,11 @@ firewall {
             }
             protocol udp
         }
-        rule 40 {
-            action accept
-            description ssh_from_outside
-            destination {
-                port 22
-            }
-            log enable
-            protocol tcp
-            source {
-                address 93.189.29.200
-            }
-        }
         rule 50 {
             action accept
             description "Allow from vpngw.m-sys.at"
             destination {
+                address 80.109.48.52
                 port 22
             }
             log enable
@@ -146,17 +148,30 @@ firewall {
             source {
                 address 188.118.196.202
             }
+            state {
+                established disable
+                invalid disable
+                new enable
+                related disable
+            }
         }
         rule 60 {
             action accept
             description "Allow from infra-fe02.m-sys.at"
             destination {
+                address 80.109.48.52
                 port 22
             }
             log enable
             protocol tcp
             source {
                 address 37.252.187.162
+            }
+            state {
+                established disable
+                invalid disable
+                new enable
+                related disable
             }
         }
     }
@@ -394,6 +409,21 @@ service {
         older-ciphers disable
     }
     nat {
+        rule 10 {
+            description infra_fe01_moody
+            destination {
+                address 80.109.48.52
+                port 75
+            }
+            inbound-interface eth0
+            inside-address {
+                address 10.15.6.201
+                port 22
+            }
+            log disable
+            protocol tcp
+            type destination
+        }
         rule 5010 {
             description "masquerade for WAN"
             outbound-interface eth0
